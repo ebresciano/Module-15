@@ -4,26 +4,17 @@ import UIKit
 
 var str = "Hello, playground"
 
-var penny = Int()
-var nickle = Int()
-var dime = Int()
-var quarter = Int()
-var dollar = Int()
-
-let moneyArray = [penny, nickle, dime, quarter, dollar]
-
-func moneyCount(money: Int) -> String {
+func getChange(amount: Double) -> String {
+  let amountInCents = Int(amount * 100)
+    let dollars = amountInCents / 100
+    let quarters = (amountInCents - dollars*100) / 25
+    let dimes = (amountInCents - dollars*100 - quarters*25) / 10
+    let nickels = (amountInCents - dollars*100 - quarters*25 - dimes*10) / 5
+    let pennies = amountInCents % 5
     
-    let strings = moneyArray.map { (money) -> String in
-        var money = money
-        var output = ""
-        while money > 0 {
-            output = 
-            
-        }
-        return output
-    }
-}
+    return "Your change is \(dollars) dollars, \(quarters) quarters, \(dimes) dimes, \(nickels) nickels, \(pennies), pennies."
     
+  }
+    print(getChange(19.95))
     
     
